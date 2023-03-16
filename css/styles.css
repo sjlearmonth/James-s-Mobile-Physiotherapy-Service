@@ -1,0 +1,27 @@
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+img {
+    margin: auto
+}
+
+h1 {
+    text-align: center;
+}
+
+.csp-crest {
+    width: 10%;
+    height: auto;
+    position: absolute;
+    right: 1%;
+    
+}
+
+.hcpc-logo {
+    width: 10%;
+    height: auto;
+    position: absolute;
+    left: 5%;
+}
