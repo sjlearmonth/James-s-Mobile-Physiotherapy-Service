@@ -4,18 +4,32 @@ body {
 }
 
 img {
-    margin: auto
+    margin: auto;
+    width: 100%;
+    height: auto;
 }
 
 h1 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.training-content {
+    text-align: justify;
+    width: 50%;
+    margin: auto;
+    font-size: 1.2em;
+}
+
 .csp-crest {
     width: 10%;
     height: auto;
     position: absolute;
-    right: 1%;
+    right: 2%;
     
 }
 
@@ -23,5 +37,26 @@ h1 {
     width: 10%;
     height: auto;
     position: absolute;
-    left: 5%;
+    left: 2%;
 }
+
+.profile-image {
+    float: left;
+    width: 40%;
+    height: auto;
+    margin-right: 1.5%;
+    /* margin-bottom: 1.5%; */
+    padding: 0%;
+}
+
+.services-section {
+    text-align: center;
+}
+
+.services-content {
+    display: inline-block;
+    text-align: left;
+    margin-left: 0%;
+    font-size: 1.2em;
+}
+
