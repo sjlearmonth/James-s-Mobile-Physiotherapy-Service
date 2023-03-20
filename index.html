@@ -36,7 +36,6 @@
     </p>
     </p>
     <br>
-    <br>
     <h2>Physiotherapy Services</h2>
     <div class="services-section">
         <div class="services-content">
@@ -48,12 +47,44 @@
                 <li>Massage and manipulations for muscle and joint issues</li>
                 <li>Elderly mobility and balancing issues</li>
             </ul>
-            <p>I have my own transport so I am able to visit your home or place of work to provide my services.</p>
+            <p>I have my own transport so I am able to visit your home or place of work to provide my physiotherapy
+                services. To arrange a time to visit or discuss your exact physiotherapy needs please complete the form
+                below:-</p>
         </div>
     </div>
     <br>
-    <br>
-    <br>
+    <div class="container">
+        <form action="php/contact-form-process.php" method="post">
+
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="firstName" placeholder="Your first name...">
+
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lastName" placeholder="Your last name...">
+
+            <label for="number">Phone Number:</label>
+            <input type="text" id="number" name="phoneNumber" placeholder="Your phone number...">
+
+            <label for="email">Email Address:</label>
+            <input type="text" id="email" name="emailAddress" placeholder="Your email address...">
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="enquiryMessage" placeholder="Type your message here..."></textarea>
+
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+
+    <p style="font-size: 1.5em;text-align: center;margin-left: 15%;margin-right: 15%">Alternatively, please contact me on 07971 818756 to discuss your requirements.</p>
+
+    <a target="_blank" href="https://www.facebook.com/james.underwood.3194">
+        <img class="fb-image" src="images/facebook.png"
+            alt="">
+    </a>
+
+    <footer>James's Mobile Physiotherapy Services</footer>
+
 </body>
 
 </html>
