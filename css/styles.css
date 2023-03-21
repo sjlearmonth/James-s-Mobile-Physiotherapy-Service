@@ -138,3 +138,11 @@ footer {
     padding: 0.75%;
   }
   
+.logo-image {
+    width: 10%;
+    height: auto;
+    position: relative;
+    top: -50px;
+    display: flex;
+    justify-content: center;
+}

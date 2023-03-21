@@ -3,9 +3,9 @@
 if (isset($_POST['emailAddress'])) {
 
 //     // EDIT THE FOLLOWING TWO LINES:
-    $email_to = 'stephen.j.learmonth@gmail.com';
+    $email_to = 'jamespgunderwood@hotmail.com';
     $email_subject = "You have a physiotherapy enquiry!";
-    $email_dev = 'stephen.j.learmonth@gmail.com';
+    $email_dev = 'jamespgunderwoodenquiries@gmail.com';
 
     function problem($error)
     {
