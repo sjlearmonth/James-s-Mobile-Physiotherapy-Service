@@ -12,6 +12,7 @@ img {
 h1 {
     text-align: center;
     font-size: 3em;
+    margin-top: 0%;
 }
 
 h2 {
@@ -60,7 +61,7 @@ a {
 
 .profile-image {
     float: left;
-    width: 40%;
+    width: 25%;
     height: auto;
     margin-right: 1.5%;
     /* margin-bottom: 1.5%; */
@@ -138,10 +139,11 @@ footer {
   }
   
 .logo-image {
-    width: 10%;
+    width: 20%;
     height: auto;
     position: relative;
     top: -50px;
     display: flex;
     justify-content: center;
+    border-style: solid;
 }
