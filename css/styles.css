@@ -33,7 +33,7 @@ a {
     margin-bottom: 0.5rem;
 }
   
-.training-content {
+.training-content, .testimonial-content {
     text-align: justify;
     width: 70%;
     margin: auto;
