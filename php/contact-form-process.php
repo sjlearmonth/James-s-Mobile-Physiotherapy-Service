@@ -74,7 +74,7 @@ if (strlen($_POST['firstName']) > 0 ||
     // Build array for API call
     $recipientPhoneNumber = "447971818756";
     // $recipientPhoneNumber = "447757782537";
-    $data = array("username" => "stephen.j.learmonth@gmail.com", "key" => "8C32B75C-35A6-C906-5A04-A6CD05141B11", "to" => $recipientPhoneNumber, "senderid" => $senderid, "message" => $SMSMessage);
+    $data = array("username" => "stephen.j.learmonth@gmail.com", "key" => "28D18077-60B1-2372-43C3-C5EA50029D5F", "to" => $recipientPhoneNumber, "senderid" => $senderid, "message" => $SMSMessage);
     
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
