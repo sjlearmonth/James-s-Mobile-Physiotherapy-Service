@@ -1,5 +1,16 @@
 <?php
+//
+// © 2023 Stephen J Learmonth stephen.j.learmonth@gmail.com 
+//
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require '/home/selficte/juphysiotherapy.co.uk/PHPMailer-master/src/Exception.php';
+require '/home/selficte/juphysiotherapy.co.uk/PHPMailer-master/src/PHPMailer.php';
+require '/home/selficte/juphysiotherapy.co.uk/PHPMailer-master/src/SMTP.php';
+  
 // Check if at least one field is not empty
 if (strlen($_POST['firstName']) > 0 ||
     strlen($_POST['lastName']) > 0 ||
@@ -35,6 +46,9 @@ if (strlen($_POST['firstName']) > 0 ||
         exit();
     }
 
+    // Format phone number correctly
+    $phoneNumber = '+44' . substr($phoneNumber, 1);
+    
     // Check if emailAddress field is empty or is invalid
     $emailAddress = $_POST['emailAddress'];
     $emailAddress_regex = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -54,83 +68,149 @@ if (strlen($_POST['firstName']) > 0 ||
     // Buid SMS message and send it //
     //////////////////////////////////
 
-    // Base URL and send PHP script
-    $url = "https://api-mapper.clicksend.com/http/v2/send.php";
-        
-    // Build sender ID for SMS message
-    $senderid = "Unknown";
+    // PHP function to send an SMS message
+    function sendSMSMessage($phoneNumber, $message) {
 
-    // Format phone number correctly
-    $phoneNumber = '+44' . substr($phoneNumber, 1);
+        // Base URL and send PHP script
+        $url = "https://api-mapper.clicksend.com/http/v2/send.php";
+        
+        // Build sender ID for SMS message
+        $senderid = "Unknown";
+
+        // build the array for the API call
+        $data = array("username" => "stephen.j.learmonth@gmail.com", "key" => "28D18077-60B1-2372-43C3-C5EA50029D5F", "to" => $phoneNumber, "senderid" => $senderid, "message" => $message);
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+        // Send the SMS message
+        $response = curl_exec($ch);
+    
+        // Close the connection
+        curl_close($ch);
+
+        // return response
+        return $response;
+    }
+
+    // PHP function to send an email
+    function sendmail($to, $nameto, $subject, $message, $altmess)  {
+        $from  = "no-reply@juphysiotherapy.co.uk"; 
+        $namefrom = "no-reply";
+        $mail = new PHPMailer();
+        $mail->SMTPDebug = 0;
+        $mail->CharSet = 'UTF-8';
+        $mail->isSMTP();
+        $mail->SMTPAuth   = true;
+        $mail->Host   = "premium40.web-hosting.com";
+        $mail->Port       = 465;
+        $mail->Username   = $from;
+        $mail->Password   = "juphysiotherapy2023";
+        $mail->SMTPSecure = "ssl";
+        $mail->setFrom($from,$namefrom);
+        $mail->Subject  = $subject;
+        $mail->isHTML();
+        $mail->Body = $message;
+        $mail->AltBody  = $altmess;
+        $mail->addAddress($to, $nameto);
+        return $mail->send();
+      }
+
+    $clientPhoneNumber = "+447971818756";
+    // $clientPhoneNumber = "+447757782537";
     
     // Build SMS message body
-    $SMSMessage = "You have a message from a potential client. Here are the details.". "\n\n";
-    $SMSMessage .= "First Name: " . $firstName . "\n";
-    $SMSMessage .= "Last Name: " . $lastName . "\n";
-    $SMSMessage .= "Email Address: " . $emailAddress . "\n";
-    $SMSMessage .= "Phone Number: " . $phoneNumber . "\n";
-    $SMSMessage .= "Enquiry Message: " . $enquiryMessage;
+    $clientMessage = "You have a physiotherapy enquiry from a potential client. Here are the details.". "\n\n";
+    $clientMessage .= "First Name: " . $firstName . "\n";
+    $clientMessage .= "Last Name: " . $lastName . "\n";
+    $clientMessage .= "Email Address: " . $emailAddress . "\n";
+    $clientMessage .= "Phone Number: " . $phoneNumber . "\n";
+    $clientMessage .= "Enquiry Message: " . $enquiryMessage;
     
-    // Build array for API call
-    $recipientPhoneNumber = "447971818756";
-    // $recipientPhoneNumber = "447757782537";
-    $data = array("username" => "stephen.j.learmonth@gmail.com", "key" => "28D18077-60B1-2372-43C3-C5EA50029D5F", "to" => $recipientPhoneNumber, "senderid" => $senderid, "message" => $SMSMessage);
-    
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = sendSMSMessage($clientPhoneNumber, $clientMessage);
 
-    // Send the SMS message
-    $response = curl_exec($ch);
+    // check that the SMS message has been sent successfully
+    if (strpos($response, "Success") == true) {
 
-    // Close the connection
-    curl_close($ch);
-
-    // check that SMS message has been sent successfully
-    if (strpos($response, "Success") == false) {
-        $SMSSentSuccessfully = false;
-    } else {
         $SMSSentSuccessfully = true;
+
+        // send SMS to developer to confirm client SMS message was sent successfully
+        $developerPhoneNumber = "+447757782537";
+        $DeveloperSMSMessage  = "A physiotherapy enquiry by SMS has been successfully sent to client: James PG Underwood.";
+        
+        sendSMSMessage($developerPhoneNumber, $DeveloperSMSMessage);
+    
+    } else {
+
+        $SMSSentSuccessfully = false;
+
+        // Send an email to notify developer that SMS message was not sent successfully
+        
+        $emailDeveloper = "jamespgunderwoodenquiries@gmail.com";
+        $emailSubject = "Regarding www.juphysiotherapy.co.uk";
+        $emailMessage = "A physiotherapy enquiry by SMS was not sent successfully to client: James PG Underwood.";
+        
+        sendmail($emailDeveloper, "Stephen J Learmonth.", $emailSubject, $emailMessage, "");        
+
     }
 
     ////////////////////////////////////
     // Buid email message and send it //
     ////////////////////////////////////
 
-    // Build email addresses of recipients
-    $emailTo = 'jamespgunderwood@hotmail.com';
-    // $emailTo = 'stephen.j.learmonth@gmail.com';
-    $emailDev = 'jamespgunderwoodenquiries@gmail.com';
+    // Build email address of client
+    $emailClient = 'jamespgunderwood@hotmail.com';
+    // $emailClient = 'jamespgunderwoodenquiries@gmail.com';
 
     // Build email subject
     $emailSubject = "You have a physiotherapy enquiry!";
     
     // Build the email body
-    $emailMessage = "You have a message from a potential client. Here are the details.". "<br /><br />";
+    $emailMessage = "You have a physiotherapy enquiry from a potential client. Here are the details.". "<br /><br />";
     $emailMessage .= "First Name: " . $firstName . "<br /><br />";
     $emailMessage .= "Last Name: " . $lastName . "<br /><br />";
     $emailMessage .= "Email Address: " . $emailAddress . "<br /><br />";
     $emailMessage .= "Phone Number: " . $phoneNumber . "<br /><br />";
     $emailMessage .= "Enquiry Message: " . $enquiryMessage;
- 
-    // Build email headers
-    $headers = "X-Mailer: PHP/" . phpversion() . "\r\n";
-    $headers .= "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-Type: text/html; charset=iso-8859-1";
-    
-    // Send the email messages
-    $emailSentSuccessfully = mail($emailTo, $emailSubject, $emailMessage, $headers) &&
-                             mail($emailDev, $emailSubject, $emailMessage, $headers);
 
-    // Check if both the SMS and mail messages have been sent successfully
+    $emailSentSuccessfully = sendmail($emailClient, "James PG Underwood", $emailSubject, $emailMessage, "");
+
+    if ($emailSentSuccessfully) {
+
+        // Build email to confirm email has been successfully sent to client
+
+        $emailDeveloper = "jamespgunderwoodenquiries@gmail.com";
+        $emailSubject = "Regarding www.juphysiotherapy.co.uk";
+        $emailMessage = "A physiotherapy enquiry by email has been sent successfully to client: James PG Underwood.";
+    
+        // send email
+        sendmail($emailDeveloper, "Stephen J Learmonth.", $emailSubject, $emailMessage, "");
+            
+    } else {
+        
+        // Send an SMS text message to notify developer that email was not sent successfully
+        $developerPhoneNumber = "+447757782537";
+
+        $developerMessage = "A physiotherapy enquiry by email was not sent successfully to client: James PG Underwood.";
+        
+        sendSMSMessage($developerPhoneNumber, $developerMessage);
+
+    }
+
+    // Check if both SMS message and email have both been sent successfully
     if ($SMSSentSuccessfully && $emailSentSuccessfully) {
-            echo "<script type='text/javascript'>alert('Thank you. Your message has been sent.');window.location.href='/index.html';</script>";
-        } else {
-            echo "<script type='text/javascript'>alert('There was a problem sending your message. Please try again');window.location.href='/index.html';</script>";
-        }    
+
+        echo "<script type='text/javascript'>alert('Thank you. Your message has been sent.');window.location.href='/index.html';</script>";
+
+    } else {
+
+        echo "<script type='text/javascript'>alert('There was a problem sending your message. Please contact the developer at stephen.j.learmonth@gmail.com.');window.location.href='/index.html';</script>";
+
+    }
 
 } else {
     
