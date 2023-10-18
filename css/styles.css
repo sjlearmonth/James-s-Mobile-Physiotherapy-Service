@@ -153,3 +153,8 @@ footer {
     justify-content: center;
     border-style: solid;
 }
+
+footer, a {
+    font-size: 1.1rem;
+    text-decoration: none;
+}
