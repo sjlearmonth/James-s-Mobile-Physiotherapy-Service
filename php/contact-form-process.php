@@ -14,7 +14,7 @@ require '/home/selficte/juphysiotherapy.co.uk/PHPMailer-master/src/SMTP.php';
 // Check if at least one field is not empty
 if (strlen($_POST['firstName']) > 0 ||
     strlen($_POST['lastName']) > 0 ||
-    strlen($_POST['phoneNumber']) > 0 ||
+    strlen($_POST['mobileNumber']) > 0 ||
     strlen($_POST['emailAddress']) > 0 ||
     strlen($_POST['enquiryMessage']) > 0) {
 
@@ -38,16 +38,28 @@ if (strlen($_POST['firstName']) > 0 ||
         exit();
     }
 
-    // Check if phoneNumber field is empty or is invalid
-    $phoneNumber = $_POST['phoneNumber'];
-    $phoneNumber_regex = '/^[0-9]+$/';
-    if (!preg_match($phoneNumber_regex, $phoneNumber) || substr($phoneNumber, 0, 2) != '07' || strlen($phoneNumber) != 11) {
-        echo "<script type='text/javascript'>alert('The phone number is missing or does not appear to be a valid mobile phone number. Please try again');window.location.href='/index.html';</script>";
+    //
+    // Check if mobileNumber field is empty or is invalid
+    //
+    // read mobile number
+    $mobileNumber = $_POST['mobileNumber'];
+
+    // remove all spaces from mobileNumber
+    $mobileNumber = str_replace(' ', '', $mobileNumber);
+
+    // compose regular expression for match
+    $mobileNumber_regex = '/^(07|\+447)[0-9]+$/';
+
+    // Check if there is a valid mobile number beginning 07... or +44...
+    if (!preg_match($mobileNumber_regex, $mobileNumber) || ( substr($mobileNumber, 0, 2) != '07' && substr($mobileNumber, 0, 4) != '+447' ) || ( strlen($mobileNumber) != 11 && strlen($mobileNumber) != 13) ) {
+        echo "<script type='text/javascript'>alert('The mobile number is missing or does not appear to be a valid mobile number. Please try again');window.location.href='/index.html';</script>";
         exit();
     }
 
     // Format phone number correctly
-    $phoneNumber = '+44' . substr($phoneNumber, 1);
+    if (substr($mobileNumber, 0, 2) == '07') {
+        $mobileNumber = '+44' . substr($mobileNumber, 1);
+    }
     
     // Check if emailAddress field is empty or is invalid
     $emailAddress = $_POST['emailAddress'];
@@ -69,7 +81,7 @@ if (strlen($_POST['firstName']) > 0 ||
     //////////////////////////////////
 
     // PHP function to send an SMS message
-    function sendSMSMessage($phoneNumber, $message) {
+    function sendSMSMessage($mobileNumber, $message) {
 
         // Base URL and send PHP script
         $url = "https://api-mapper.clicksend.com/http/v2/send.php";
@@ -78,7 +90,7 @@ if (strlen($_POST['firstName']) > 0 ||
         $senderid = "Unknown";
 
         // build the array for the API call
-        $data = array("username" => "stephen.j.learmonth@gmail.com", "key" => "28D18077-60B1-2372-43C3-C5EA50029D5F", "to" => $phoneNumber, "senderid" => $senderid, "message" => $message);
+        $data = array("username" => "stephen.j.learmonth@gmail.com", "key" => "28D18077-60B1-2372-43C3-C5EA50029D5F", "to" => $mobileNumber, "senderid" => $senderid, "message" => $message);
         
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -120,18 +132,18 @@ if (strlen($_POST['firstName']) > 0 ||
         return $mail->send();
       }
 
-    $clientPhoneNumber = "+447971818756";
-    // $clientPhoneNumber = "+447757782537";
+    $clientMobileNumber = "+447971818756";
+    // $clientMobileNumber = "+447757782537";
     
     // Build SMS message body
     $clientMessage = "You have a physiotherapy enquiry from a potential client. Here are the details.". "\n\n";
     $clientMessage .= "First Name: " . $firstName . "\n";
     $clientMessage .= "Last Name: " . $lastName . "\n";
     $clientMessage .= "Email Address: " . $emailAddress . "\n";
-    $clientMessage .= "Phone Number: " . $phoneNumber . "\n";
+    $clientMessage .= "Phone Number: " . $mobileNumber . "\n";
     $clientMessage .= "Enquiry Message: " . $enquiryMessage;
     
-    $response = sendSMSMessage($clientPhoneNumber, $clientMessage);
+    $response = sendSMSMessage($clientMobileNumber, $clientMessage);
 
     // check that the SMS message has been sent successfully
     if (strpos($response, "Success") == true) {
@@ -139,10 +151,10 @@ if (strlen($_POST['firstName']) > 0 ||
         $SMSSentSuccessfully = true;
 
         // send SMS to developer to confirm client SMS message was sent successfully
-        $developerPhoneNumber = "+447757782537";
+        $developerMobileNumber = "+447757782537";
         $DeveloperSMSMessage  = "A physiotherapy enquiry by SMS has been successfully sent to client: James PG Underwood.";
         
-        sendSMSMessage($developerPhoneNumber, $DeveloperSMSMessage);
+        sendSMSMessage($developerMobileNumber, $DeveloperSMSMessage);
     
     } else {
 
@@ -174,7 +186,7 @@ if (strlen($_POST['firstName']) > 0 ||
     $emailMessage .= "First Name: " . $firstName . "<br /><br />";
     $emailMessage .= "Last Name: " . $lastName . "<br /><br />";
     $emailMessage .= "Email Address: " . $emailAddress . "<br /><br />";
-    $emailMessage .= "Phone Number: " . $phoneNumber . "<br /><br />";
+    $emailMessage .= "Mobile Number: " . $mobileNumber . "<br /><br />";
     $emailMessage .= "Enquiry Message: " . $enquiryMessage;
 
     $emailSentSuccessfully = sendmail($emailClient, "James PG Underwood", $emailSubject, $emailMessage, "");
@@ -193,11 +205,11 @@ if (strlen($_POST['firstName']) > 0 ||
     } else {
         
         // Send an SMS text message to notify developer that email was not sent successfully
-        $developerPhoneNumber = "+447757782537";
+        $developerMobileNumber = "+447757782537";
 
         $developerMessage = "A physiotherapy enquiry by email was not sent successfully to client: James PG Underwood.";
         
-        sendSMSMessage($developerPhoneNumber, $developerMessage);
+        sendSMSMessage($developerMobileNumber, $developerMessage);
 
     }
 
