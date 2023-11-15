@@ -2,11 +2,60 @@ body {
     margin: 0%;
     padding: 0%;
     background-color: rgba(33, 57, 99, 1);
+    background-image: url("../images/index.svg");
+    
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center 80px;
 }
 
-.background-svg {
-    width: 100%;
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 3%;
+    border: 1px orange solid;
+
+
 }
+
+.grid-item {
+    color: white;
+    background-color: blue;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* img {
     margin: auto;
