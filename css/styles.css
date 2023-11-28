@@ -21,6 +21,20 @@ body {
     height: 500px;
 }
 
+@font-face {
+    font-family: 'khulabold';
+    src: url('fonts/khula-bold-webfont.woff2') format('woff2'),
+         url('fonts/khula-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container-fluid-nav {
+    display: flex;
+    justify-content: space-around;
+    color:blue;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 1.1fr 1.8fr 1.1fr;
