@@ -1,6 +1,9 @@
-function removeMenuItems(x) {
+function removeMenuItems() {
 
-  if (mediaQueryListObject.matches) {
+  //
+  // if width is less than 750px
+  //
+  if ( mediaQueryListObject.matches ) {
 
     // Remove element nodes first
     document.getElementById("logo").remove();
@@ -15,11 +18,14 @@ function removeMenuItems(x) {
     menuElem.setAttribute("id", "hamburger");
     menuElem.addEventListener("click", dropDownMenu);
 
-    // Modify attributs for left-container
-    const lcNode = document.getElementsByClassName("left-container")[0];
-    lcNode.setAttribute("style", "width:auto;");
-    lcNode.appendChild(menuElem);
+    // Modify attributes for left-container
+    const lcElemNode = document.getElementsByClassName("left-container")[0];
+    lcElemNode.setAttribute("style", "width:auto;");
+    lcElemNode.appendChild(menuElem);
 
+  //
+  // if width is greater than 750px
+  //
   } else {
 
     const nodes = document.getElementsByClassName("left-container")[0].childNodes;
@@ -32,7 +38,7 @@ function removeMenuItems(x) {
     }
 
     // Check if only element node is hamburger
-    if (elemNodeCount == 1) {
+    if ( elemNodeCount == 1 ) {
       // Remove hamburger
       document.getElementById("hamburger").remove();
 
@@ -47,35 +53,38 @@ function removeMenuItems(x) {
       document.getElementsByClassName("left-container")[0].appendChild(contactUs);
 
     } else if (elemNodeCount == 4) {
-
-      // Remove hamburger
-      document.getElementById("hamburger").remove();
-
-      // Modify attributs for left-container
-      const lcNode = document.getElementsByClassName("left-container")[0];
-      lcNode.setAttribute("style", "width:340px;");
       
+      // if first child node is hamburger
+      const lcFirstElemChild = document.getElementsByClassName("left-container")[0].firstElementChild;
+      if (lcFirstElemChild.tagName == "IMG") {
 
+        // Replace hamburger with logo
+        const lcElemNode = document.getElementsByClassName("left-container")[0];
+        lcElemNode.replaceChild(logo, lcFirstElemChild);
 
+        // modify some CSS properties of left-constainer
+        lcElemNode.setAttribute("style", "width:340px;flex-direction:row;");
 
+        // menu needs to start out as closed
+        menuIsClosed = true;
 
-
+      }
     }
-
   }
 }
 
 function dropDownMenu() {
+  console.log("Menu clicked.");
 
-  if (menuIsClosed) {
+  if ( menuIsClosed ) {
 
     //
     // Menu is closed so open it
     //
 
     // setup flex box
-    const lcElem = document.getElementsByClassName("left-container")[0];
-    lcElem.setAttribute("style", "flex-direction:column;width:auto;height:200px;justify-content:space-around;align-items:baseline;position:relative;top:108px;");
+    const lcElemNode = document.getElementsByClassName("left-container")[0];
+    lcElemNode.setAttribute("style", "flex-direction:column;width:auto;height:200px;align-items:baseline;position:relative;top:108px;");
 
     // Append child nodes back in
     document.getElementsByClassName("left-container")[0].appendChild(about);
@@ -97,17 +106,20 @@ function dropDownMenu() {
     document.getElementById("contact-us").remove();
 
     // setup flex box
-    const lcElem = document.getElementsByClassName("left-container")[0];
-    lcElem.setAttribute("style", "flex-direction:row;width:auto;justify-content:flex-start;align-items:center;position:relative;top:50%;transform:translateY(-50%);");
+    const lcElemNode = document.getElementsByClassName("left-container")[0];
+    lcElemNode.setAttribute("style", "flex-direction:row;width:auto;justify-content:flex-start;align-items:center;position:relative;top:50%;transform:translateY(-50%);");
 
     // Flip menu control
     menuIsClosed = true;
-
   }
 }
 
-// Create menu control variable
+// Create variables
 var menuIsClosed = true;
+var logo = document.getElementById("logo");
+var about = document.getElementById("about");
+var services = document.getElementById("services");
+var contactUs = document.getElementById("contact-us");
 
 // Create a MediaQueryList object
 var mediaQueryListObject = window.matchMedia("(max-width: 750px)")
@@ -120,7 +132,3 @@ mediaQueryListObject.addEventListener("change", function () {
   removeMenuItems(mediaQueryListObject);
 });
 
-var logo = document.getElementById("logo");
-var about = document.getElementById("about");
-var services = document.getElementById("services");
-var contactUs = document.getElementById("contact-us");

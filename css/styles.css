@@ -53,6 +53,7 @@ body {
     display: inline-flex;
     /* border: 2px solid blue; */
     position: relative;
+    right: 2%;
     top: 50%;
     transform: translateY(-50%);
     float: right;
