@@ -18,8 +18,8 @@ function removeMenuItems() {
     menuElem.setAttribute("id", "hamburger");
     menuElem.addEventListener("click", dropDownMenu);
 
-    // Modify attributes for left-container
-    const lcElemNode = document.getElementsByClassName("left-container")[0];
+    // Modify attributes for inner-left-flex-container
+    const lcElemNode = document.getElementsByClassName("inner-left-flex-container")[0];
     lcElemNode.setAttribute("style", "width:auto;");
     lcElemNode.appendChild(menuElem);
 
@@ -28,7 +28,7 @@ function removeMenuItems() {
   //
   } else {
 
-    const nodes = document.getElementsByClassName("left-container")[0].childNodes;
+    const nodes = document.getElementsByClassName("inner-left-flex-container")[0].childNodes;
 
     var elemNodeCount = 0;
     for (let i = 0; i < nodes.length; i++) {
@@ -42,24 +42,24 @@ function removeMenuItems() {
       // Remove hamburger
       document.getElementById("hamburger").remove();
 
-      // Modify attributs for left-container
-      const lcNode = document.getElementsByClassName("left-container")[0];
+      // Modify attributs for inner-left-flex-container
+      const lcNode = document.getElementsByClassName("inner-left-flex-container")[0];
       lcNode.setAttribute("style", "width:340px;");
 
       // Append child nodes back in
-      document.getElementsByClassName("left-container")[0].appendChild(logo);
-      document.getElementsByClassName("left-container")[0].appendChild(about);
-      document.getElementsByClassName("left-container")[0].appendChild(services);
-      document.getElementsByClassName("left-container")[0].appendChild(contactUs);
+      document.getElementsByClassName("inner-left-flex-container")[0].appendChild(logo);
+      document.getElementsByClassName("inner-left-flex-container")[0].appendChild(about);
+      document.getElementsByClassName("inner-left-flex-container")[0].appendChild(services);
+      document.getElementsByClassName("inner-left-flex-container")[0].appendChild(contactUs);
 
     } else if (elemNodeCount == 4) {
       
       // if first child node is hamburger
-      const lcFirstElemChild = document.getElementsByClassName("left-container")[0].firstElementChild;
+      const lcFirstElemChild = document.getElementsByClassName("inner-left-flex-container")[0].firstElementChild;
       if (lcFirstElemChild.tagName == "IMG") {
 
         // Replace hamburger with logo
-        const lcElemNode = document.getElementsByClassName("left-container")[0];
+        const lcElemNode = document.getElementsByClassName("inner-left-flex-container")[0];
         lcElemNode.replaceChild(logo, lcFirstElemChild);
 
         // modify some CSS properties of left-constainer
@@ -83,13 +83,13 @@ function dropDownMenu() {
     //
 
     // setup flex box
-    const lcElemNode = document.getElementsByClassName("left-container")[0];
+    const lcElemNode = document.getElementsByClassName("inner-left-flex-container")[0];
     lcElemNode.setAttribute("style", "flex-direction:column;width:auto;height:200px;align-items:baseline;position:relative;top:108px;");
 
     // Append child nodes back in
-    document.getElementsByClassName("left-container")[0].appendChild(about);
-    document.getElementsByClassName("left-container")[0].appendChild(services);
-    document.getElementsByClassName("left-container")[0].appendChild(contactUs);
+    document.getElementsByClassName("inner-left-flex-container")[0].appendChild(about);
+    document.getElementsByClassName("inner-left-flex-container")[0].appendChild(services);
+    document.getElementsByClassName("inner-left-flex-container")[0].appendChild(contactUs);
 
     // Flip menu control
     menuIsClosed = false;
@@ -106,7 +106,7 @@ function dropDownMenu() {
     document.getElementById("contact-us").remove();
 
     // setup flex box
-    const lcElemNode = document.getElementsByClassName("left-container")[0];
+    const lcElemNode = document.getElementsByClassName("inner-left-flex-container")[0];
     lcElemNode.setAttribute("style", "flex-direction:row;width:auto;justify-content:flex-start;align-items:center;position:relative;top:50%;transform:translateY(-50%);");
 
     // Flip menu control

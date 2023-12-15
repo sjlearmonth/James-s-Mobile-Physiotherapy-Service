@@ -1,17 +1,59 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <style>
+
+    .outer-grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 10px;
+      justify-content: space-between;
+      align-content: center;
+    }
+
+    .inner-left-flex-container {
+      display: flex;
+      
+
+    }
+
+    .inner-center-flex-container {
+      display: flex;
+      
+    }
+
+    .inner-right-flex-container {
+      display: flex;
+      
+    }
+
+  </style>
+</head>
+
 <body>
 
-<div class="here">Logo</div>
+  <div class="outer-grid-container">
+    <div class="inner-left-flex-container">
+      <div style="background-color: red;padding:10px;">Red</div>
+      <div style="background-color: pink;padding:10px;">Pink</div>
+      <div style="background-color: orange;padding:10px;">Orange</div>
+      <div  style="background-color: yellow;padding:10px;">Yellow</div>
+    </div>
 
-<script>
-const nodes = document.getElementsByClassName("here")[0].childNodes;
-
-for (let i = 0; i < nodes.length; i++) {
-  console.log(nodes[i].nodeType);
-}
-
-</script>
-
+    <div class="inner-center-flex-container">
+      <div style="background-color: green;padding:10px;">Green</div>
+      <div style="background-color: lime;padding:10px;">Lime</div>
+      <div style="background-color: purple;padding:10px;">Purple</div>
+      <div style="background-color: blue;padding:10px;">Blue</div>
+    </div>
+    <div class="inner-right-flex-container">
+      <div style="background-color: teal;padding:10px;">Teal</div>
+      <div style="background-color: tan;padding:10px;">Tan</div>
+      <div style="background-color: hotpink;padding:10px;">HPink</div>
+      <div style="background-color: brown;padding:10px;">Brown</div>
+    </div>
+  </div>
 </body>
+
 </html>

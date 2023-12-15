@@ -20,7 +20,15 @@ body {
     height: 100px;
 }
 
-.left-container {
+.outer-grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .inner-left-flex-container {
     display: inline-flex;
     /* border: 2px solid green; */
     position: relative;
@@ -30,9 +38,31 @@ body {
     width: 340px;
     justify-content: space-around;
     align-items: center;
-}
+  }
 
-.left-container > * {
+  .inner-center-flex-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+  }
+
+  .inner-right-flex-container {
+    display: inline-flex;
+    /* border: 2px solid blue; */
+    position: relative;
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 340px;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+.inner-left-flex-container > * {
     font-size: 1.2rem;
     font-weight: 100;
 }
@@ -47,19 +77,6 @@ body {
 .navbar-left, .navbar-left:visited, .navbar-left:hover, .navbar-left:active {
     text-decoration: none;
     color: inherit;
-}
-
-.right-container {
-    display: inline-flex;
-    /* border: 2px solid blue; */
-    position: relative;
-    right: 2%;
-    top: 50%;
-    transform: translateY(-50%);
-    float: right;
-    width: 340px;
-    justify-content: space-around;
-    align-items: center;
 }
 
 .navbar-right-fb {
@@ -86,13 +103,6 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 30px;
-}
-
-@media only screen and (max-width: 600px) {
-    .logo-img {
-        width: 40px;
-        height: 40px;
-    }
 }
 
 
