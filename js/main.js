@@ -83,7 +83,7 @@ function dropDownMenu() {
 
     // setup flex box
     const ilfcElemNode = document.getElementsByClassName("inner-left-flex-container")[0];
-    ilfcElemNode.setAttribute("style", "flex-direction:column;width:auto;height:200px;align-items:baseline;align-self:center;position:relative;top:9px;");
+    ilfcElemNode.setAttribute("style", "flex-direction:column;width:auto;height:200px;align-items:baseline;align-self:center;position:relative;top:8.5px;");
 
     const irfcElemNode = document.getElementsByClassName("inner-right-flex-container")[0];
     irfcElemNode.setAttribute("style", "align-self:start;position:relative;top:17.5px;")
