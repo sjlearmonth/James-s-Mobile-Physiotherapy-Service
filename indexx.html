@@ -2,30 +2,47 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <style>
+    body {
+      height: 100vh;
+    }
+
     img {
-      width: 30%;
-      height: auto;
+      /* width: 33%; */
     }
 
     .container {
       display: flex;
-      width: 40%;
-      height: auto;
+      justify-content: space-between;
+      width: 90%;
       position: relative;
       left: 50%;
       transform: translateX(-50%);
+      border:1px solid black;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container"></div>
-  <a href="https://www.hcpc-uk.org/"><img src="images/hcpc-logo.jpg"></a>
-  <img src="images/logo.png"></a>
-  <a href="https://www.csp.org.uk/"><img src="images/csp-crest.svg"></a>
+  <div class="container">
+    <div style="border: 5px solid red;">
+      <a href="http://www.google.com">
+        <img style="position:relative;top:50%;transform:translateY(-50%);" src="images/hcpc-logo.jpg">
+      </a>
+    </div>
+    <div style="border: 5px solid green;">
+      <a href="http://www.apple.com">
+        <img style="position:relative;top:50%;left:50%;transform:translate(-50%,-50%);width:80%;" src="images/logo.png">
+      </a>
+    </div>
+    <div style="border: 5px solid blue;">
+      <a href="http://www.samsung.com">
+        <img style="position:relative;top:50%;left:50%;transform:translate(-50%,-50%);height:60%;" src="images/csp-crest.png">
+      </a>
+    </div>
+  </div>
 
 </body>
 

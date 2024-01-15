@@ -100,14 +100,38 @@ section {
     text-align: justify;
 }
 
-.csp-image {
-    width: 60%;
-    height: auto;    
+.title-images-container {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid black;
 }
 
 .hcpc-image {
-    width: 100%;
-    height: auto;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+    width:100%;
+    border: 1px solid green;
+}
+
+.logo-image {
+    position:relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+}
+
+.csp-image {
+    position:relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:50%;
 }
 
 .profile-image {
@@ -118,22 +142,7 @@ section {
     border: 5px solid black;
 }
 
-.title-images-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-top: 50px;
-    width: 80%;
-}
 
-.logo-image {
-    width: 30%;
-    height: auto;
-    border: 5px solid black;
-}
 
 
 
