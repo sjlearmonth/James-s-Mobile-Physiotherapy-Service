@@ -143,18 +143,32 @@ section {
 }
 
 .carousel-item-content {
-    padding-top:50px;
+    padding-top:20px;
     padding-bottom:60px;
-    height:100%;
-    width:60%;
+    height:auto;
+    width:65%;
     text-align:center;
     margin:auto;
     line-height:2rem;
     color:beige;
 }
 
+.carousel-client-name {
+    margin:auto;
+    color:white;
+    text-align:center;
+    position:relative;
+    top:-40px;
+}
 
+.social-links {
+    display: flex;
+    justify-content: center;
+}
 
+footer {
+    text-align: center;
+}
 
 
 
@@ -255,11 +269,6 @@ a {
     margin: auto;
     font-size: 28px;
     color: blue;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
 }
 
 label {
