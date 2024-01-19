@@ -107,7 +107,6 @@ section {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    border: 1px solid black;
 }
 
 .hcpc-image {
@@ -115,7 +114,6 @@ section {
     top:50%;
     transform:translateY(-50%);
     width:100%;
-    border: 1px solid green;
 }
 
 .logo-image {
@@ -143,9 +141,8 @@ section {
 }
 
 .carousel-item-content {
-    padding-top:20px;
-    padding-bottom:60px;
-    height:auto;
+    padding-top:10px;
+    padding-bottom:10px;
     width:65%;
     text-align:center;
     margin:auto;
@@ -157,8 +154,10 @@ section {
     margin:auto;
     color:white;
     text-align:center;
-    position:relative;
-    top:-40px;
+}
+
+.carousel-item {
+    height: 250px;
 }
 
 .social-links {
@@ -168,6 +167,25 @@ section {
 
 footer {
     text-align: center;
+    font-size: 2rem;
+    padding: 10px;
+    color: black;
+}
+
+footer > img {
+    height: 40px;
+    width: auto;
+    position: relative;
+    top: -5px;
+}
+
+footer > a {
+    color: black;
+}
+
+.da {
+    font-size: 1.5rem;
+    color: black;
 }
 
 
