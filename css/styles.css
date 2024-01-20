@@ -188,8 +188,21 @@ footer > a {
     color: black;
 }
 
+.services-header {
+    border: none;
+}
 
+.services-title-image {
+    width: 100%;
+}
 
+.services-logo-image {
+    width: 30%;
+    display: block;
+    border: 5px solid gray;
+    margin: -15% auto 0;
+    position: relative;
+}
 
 
 
