@@ -7,9 +7,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require '/home/selficte/juphysiotherapy.co.uk/PHPMailer-master/src/Exception.php';
-require '/home/selficte/juphysiotherapy.co.uk/PHPMailer-master/src/PHPMailer.php';
-require '/home/selficte/juphysiotherapy.co.uk/PHPMailer-master/src/SMTP.php';
+require '/home/selficte/public_html/PHPMailer-master/src/Exception.php';
+require '/home/selficte/public_html/PHPMailer-master/src/PHPMailer.php';
+require '/home/selficte/public_html/PHPMailer-master/src/SMTP.php';
   
 // Check if at least one field is not empty
 if (strlen($_POST['firstName']) > 0 ||
@@ -182,7 +182,7 @@ if (strlen($_POST['firstName']) > 0 ||
     $emailSubject = "You have a physiotherapy enquiry!";
     
     // Build the email body
-    $emailMessage .= "You have a physiotherapy enquiry from a potential client. Here are the details.". "<br /><br />";
+    $emailMessage = "You have a physiotherapy enquiry from a potential client. Here are the details.". "<br /><br />";
     $emailMessage .= "First Name: " . $firstName . "<br /><br />";
     $emailMessage .= "Last Name: " . $lastName . "<br /><br />";
     $emailMessage .= "Email Address: " . $emailAddress . "<br /><br />";
@@ -195,7 +195,7 @@ if (strlen($_POST['firstName']) > 0 ||
 
         // Build email to confirm email has been successfully sent to client
 
-        $emailDeveloper = "jamespgunderoodenquiries@gmail.com";
+        $emailDeveloper = "jamespgunderwoodenquiries@gmail.com";
         $emailSubject = "Regarding www.juphysiotherapy.co.uk";
         $emailMessage = "A physiotherapy enquiry by email has been sent successfully to client: James PG Underwood.";
     
