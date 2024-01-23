@@ -1,6 +1,6 @@
 <?php
 //
-// © 2023 Stephen J Learmonth stephen.j.learmonth@gmail.com 
+// © 2024 Stephen J Learmonth stephen.j.learmonth@gmail.com 
 //
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -110,33 +110,32 @@ if (strlen($_POST['firstName']) > 0 ||
     }
 
     // PHP function to send an email
-    function sendmail($to, $nameto, $subject, $message, $altmess)  {
-        $from  = "no-reply@juphysiotherapy.co.uk"; 
-        $namefrom = "no-reply";
+    function sendmail($to, $nameto, $subject, $message)  {
+        $from  = "stephen.j.learmonth@gmail.com"    ; 
+        $namefrom = "Stephen J Learmonth";
         $mail = new PHPMailer();
         $mail->SMTPDebug = 0;
         $mail->CharSet = 'UTF-8';
         $mail->isSMTP();
-        $mail->SMTPAuth   = true;
-        $mail->Host   = "premium40.web-hosting.com";
+        $mail->SMTPAuth = true;
+        $mail->Host = "smtp.gmail.com";
         $mail->Port       = 465;
         $mail->Username   = $from;
-        $mail->Password   = "juphysiotherapy2023";
+        $mail->Password = "zrfeihypvktdxzbv";
         $mail->SMTPSecure = "ssl";
         $mail->setFrom($from,$namefrom);
         $mail->Subject  = $subject;
-        $mail->isHTML();
+        $mail->isHTML(true);
         $mail->Body = $message;
-        $mail->AltBody  = $altmess;
         $mail->addAddress($to, $nameto);
         return $mail->send();
       }
-
-    $clientMobileNumber = "+447971818756";
-    // $clientMobileNumber = "+447757782537";
+    
+    // $clientMobileNumber = "+447971818756";
+    $clientMobileNumber = "+447757782537";
     
     // Build SMS message body
-    $clientMessage = "You have a physiotherapy enquiry from a potential client. Here are the details.". "\n\n";
+    $clientMessage  = "You have a physiotherapy enquiry from a potential client. Here are the details.". "\n\n";
     $clientMessage .= "First Name: " . $firstName . "\n";
     $clientMessage .= "Last Name: " . $lastName . "\n";
     $clientMessage .= "Email Address: " . $emailAddress . "\n";
@@ -144,6 +143,7 @@ if (strlen($_POST['firstName']) > 0 ||
     $clientMessage .= "Enquiry Message: " . $enquiryMessage;
     
     $response = sendSMSMessage($clientMobileNumber, $clientMessage);
+    // $response = "Success";
 
     // check that the SMS message has been sent successfully
     if (strpos($response, "Success") == true) {
@@ -162,7 +162,7 @@ if (strlen($_POST['firstName']) > 0 ||
 
         // Send an email to notify developer that SMS message was not sent successfully
         
-        $emailDeveloper = "jamespgunderwoodenquiries@gmail.com";
+        $emailDeveloper = "jamespgunderwoodeenquiries@gmail.com";
         $emailSubject = "Regarding www.juphysiotherapy.co.uk";
         $emailMessage = "A physiotherapy enquiry by SMS was not sent successfully to client: James PG Underwood.";
         
@@ -175,39 +175,39 @@ if (strlen($_POST['firstName']) > 0 ||
     ////////////////////////////////////
 
     // Build email address of client
-    $emailClient = 'jamespgunderwood@hotmail.com';
-    // $emailClient = 'jamespgunderwoodenquiries@gmail.com';
+    // $emailClient = 'contactus@juphysiotherapy.co.uk';
+    $emailClient = 'jamespgunderwoodenquiries@gmail.com';
 
     // Build email subject
     $emailSubject = "You have a physiotherapy enquiry!";
     
     // Build the email body
-    $emailMessage = "You have a physiotherapy enquiry from a potential client. Here are the details.". "<br /><br />";
+    $emailMessage .= "You have a physiotherapy enquiry from a potential client. Here are the details.". "<br /><br />";
     $emailMessage .= "First Name: " . $firstName . "<br /><br />";
     $emailMessage .= "Last Name: " . $lastName . "<br /><br />";
     $emailMessage .= "Email Address: " . $emailAddress . "<br /><br />";
     $emailMessage .= "Mobile Number: " . $mobileNumber . "<br /><br />";
     $emailMessage .= "Enquiry Message: " . $enquiryMessage;
 
-    $emailSentSuccessfully = sendmail($emailClient, "James PG Underwood", $emailSubject, $emailMessage, "");
+    $emailSentSuccessfully = sendmail($emailClient, "James PG Underwood", $emailSubject, $emailMessage);
 
-    if ($emailSentSuccessfully) {
+    if ( $emailSentSuccessfully ) {
 
         // Build email to confirm email has been successfully sent to client
 
-        $emailDeveloper = "jamespgunderwoodenquiries@gmail.com";
+        $emailDeveloper = "jamespgunderoodenquiries@gmail.com";
         $emailSubject = "Regarding www.juphysiotherapy.co.uk";
         $emailMessage = "A physiotherapy enquiry by email has been sent successfully to client: James PG Underwood.";
     
         // send email
-        sendmail($emailDeveloper, "Stephen J Learmonth.", $emailSubject, $emailMessage, "");
+        sendmail($emailDeveloper, "Stephen J Learmonth.", $emailSubject, $emailMessage);
             
     } else {
         
         // Send an SMS text message to notify developer that email was not sent successfully
         $developerMobileNumber = "+447757782537";
 
-        $developerMessage = "A physiotherapy enquiry by email was not sent successfully to client: James PG Underwood.";
+        $developerMessage = "A physiotherapy enquiry by email was not sent successfully to client: James PG Underwood";
         
         sendSMSMessage($developerMobileNumber, $developerMessage);
 

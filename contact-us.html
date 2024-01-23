@@ -3,13 +3,14 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> -->
   <meta name="robots" content="index, follow" />
   <meta name="description"
     content="My name is James Underwood and I offer professional, mobile physiotherapy services in the Woburn, Milton Keynes, Leighton Buzzard, Woburn Sands, Newport Pagnell and surrounding villages of Bedfordshire UK. I specialise in back pain, elderly mobility and balance issues, massage manipulation, rehabilitation, sport injuries and joint pain." />
-  <title>JU Physiotherapy</title>
+  <title>JU Physiotherapy - Services</title>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
-
 </head>
 
 <body>
@@ -17,31 +18,101 @@
   <div class="outer-grid-container">
 
     <div class="inner-left-flex-container">
-        <a id="logo" href="index.html"><img class="navbar-logo" src="images/logo.png"></a>
-        <a id="about" class="navbar-left" href="index.html">About</a>
-        <a id="services" class="navbar-left" href="services.html">Services</a>
-        <a id="contact-us" class="navbar-left" href="contact-us.html">Contact Us</a>
+      <a id="logo" href="index.html"><img class="navbar-logo" src="images/logo.png"
+          alt="My name is James Underwood and I offer professional, mobile physiotherapy services in the Woburn, Milton Keynes, Leighton Buzzard, Woburn Sands, Newport Pagnell and surrounding villages of Bedfordshire UK. I specialise in back pain, elderly mobility and balance issues, massage manipulation, rehabilitation, sport injuries and joint pain."></a>
+      <a id="about" class="navbar-left" href="index.html">About</a>
+      <a id="services" class="navbar-left" href="services.html">Services</a>
+      <a id="contact-us" class="navbar-left" href="contact-us.html">Contact Us</a>
     </div>
 
     <div id="title" class="inner-center-flex-container">
-        <div>JU Physiotherapy</div>
+      <div>JU Physiotherapy</div>
     </div>
 
     <div class="inner-right-flex-container">
-        <a target="_blank" href=" https://www.facebook.com/profile.php?id=100091819322715"><img
-                class="navbar-right-fb" src="images/facebook.png"></a>
-        <a target="_blank" href="https://www.linkedin.com/in/james-underwood-269a06118"><img class="navbar-right-li"
-                src="images/linkedin.png"></a>
-        <a target="_blank" href="https://www.instagram.com/juphysiotherapy/"><img class="navbar-right-in"
-                src="images/instagram.png"></a>
-        <a target="_blank" href="https://www.whatsapp.com/"><img class="navbar-right-wa"
-                src="images/whatsapp.png"></a>
-        <a href="index.html"><img class="navbar-right-pp" src="images/profile-pic-current.png"></a>
+      <a target="_blank" href=" https://www.facebook.com/profile.php?id=100091819322715"><img class="navbar-right-fb"
+          src="images/facebook.png"
+          alt="My name is James Underwood and I offer professional, mobile physiotherapy services in the Woburn, Milton Keynes, Leighton Buzzard, Woburn Sands, Newport Pagnell and surrounding villages of Bedfordshire UK. I specialise in back pain, elderly mobility and balance issues, massage manipulation, rehabilitation, sport injuries and joint pain."></a>
+      <a target="_blank" href="https://www.linkedin.com/in/james-underwood-269a06118"><img class="navbar-right-li"
+          src="images/linkedin.png"
+          alt="My name is James Underwood and I offer professional, mobile physiotherapy services in the Woburn, Milton Keynes, Leighton Buzzard, Woburn Sands, Newport Pagnell and surrounding villages of Bedfordshire UK. I specialise in back pain, elderly mobility and balance issues, massage manipulation, rehabilitation, sport injuries and joint pain."></a>
+      <a target="_blank" href="https://www.instagram.com/juphysiotherapy/"><img class="navbar-right-in"
+          src="images/instagram.png"
+          alt="My name is James Underwood and I offer professional, mobile physiotherapy services in the Woburn, Milton Keynes, Leighton Buzzard, Woburn Sands, Newport Pagnell and surrounding villages of Bedfordshire UK. I specialise in back pain, elderly mobility and balance issues, massage manipulation, rehabilitation, sport injuries and joint pain."></a>
+      <a target="_blank"
+        href="https://wa.me/447971818756?text=Welcome%20to%20JU%20Physiotherapy%20on%20WhatsApp.%20How%20can%20I%20help%20you?"><img
+          class="navbar-right-wa" src="images/whatsapp.png"
+          alt="My name is James Underwood and I offer professional, mobile physiotherapy services in the Woburn, Milton Keynes, Leighton Buzzard, Woburn Sands, Newport Pagnell and surrounding villages of Bedfordshire UK. I specialise in back pain, elderly mobility and balance issues, massage manipulation, rehabilitation, sport injuries and joint pain."></a>
+      <a href="index.html"><img class="navbar-right-pp" src="images/profile-pic-current.png"
+          alt="My name is James Underwood and I offer professional, mobile physiotherapy services in the Woburn, Milton Keynes, Leighton Buzzard, Woburn Sands, Newport Pagnell and surrounding villages of Bedfordshire UK. I specialise in back pain, elderly mobility and balance issues, massage manipulation, rehabilitation, sport injuries and joint pain."></a>
     </div>
-    
-</div>
 
-    <h1 style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">Contact Us Page</h1>
+  </div>
+
+  <header class="services-header">
+    <img class="services-title-image" src="images/physiotherapy-03.jpeg" alt="">
+    <img class="services-logo-image" src="images/logo.png" alt="">
+  </header>
+
+  <section>
+    <div class="contactus-container">
+      <h1 class="contactus-title">Contact Us</h1>
+      <br>
+      <p class="contactus-intro">To make a request for physiotherapy services, please complete the form below and I
+        will contact you as soon as possible to discuss your exact needs and requirements.</p>
+      <br>
+      <div class="form-container">
+
+        <form action="php/process-contact-form.php" method="post">
+
+          <label for="fname">First Name:</label>
+          <input type="text" id="fname" name="firstName" placeholder="Your first name...">
+
+          <label for="lname">Last Name:</label>
+          <input type="text" id="lname" name="lastName" placeholder="Your last name...">
+
+          <label for="number">Mobile Number:</label>
+          <input type="text" id="number" name="mobileNumber" placeholder="Your mobile number...">
+
+          <label for="email">Email Address:</label>
+          <input type="text" id="email" name="emailAddress" placeholder="Your email address...">
+
+          <label for="message">Your Message:</label>
+          <textarea id="message" name="enquiryMessage" placeholder="Type your message here..."></textarea>
+
+          <input type="submit" value="Submit">
+
+        </form>
+      </div>
+      <br>
+      <p class="direct-contact">You may also contact me directly by calling my mobile number or by sending me an 
+        email as shown below;</p>
+      <br>
+      <div>
+        <footer class="sm-container">
+          <img src="images/smartphone.png"
+            alt="Smartphone icon. My name is James Underwood and I offer professional, mobile physiotherapy services in the Woburn, Milton Keynes, Leighton Buzzard, Woburn Sands, Newport Pagnell and surrounding villages of Bedfordshire UK. I specialise in back pain, elderly mobility and balance issues, massage manipulation, rehabilitation, sport injuries and joint pain.">:
+          07971 818756
+        </footer>
+        <footer class="em-container">
+          <img src="images/email.png"
+            alt="Email icon. My name is James Underwood and I offer professional, mobile physiotherapy services in the Woburn, Milton Keynes, Leighton Buzzard, Woburn Sands, Newport Pagnell and surrounding villages of Bedfordshire UK. I specialise in back pain, elderly mobility and balance issues, massage manipulation, rehabilitation, sport injuries and joint pain.">
+          <a style="text-decoration:none" href="mailto:contactus@juphysiotherapy.co.uk">:
+            contactus@juphysiotherapy.co.uk</a>
+        </footer>
+        <footer class="pp-container">
+          <a target="_blank" style="text-decoration:none;" href="privacy-policy.pdf">Privacy Policy</a>
+        </footer>
+        <br>
+        <footer class="da-container">
+          <a style="text-decoration:none;" href="mailto:stephen.j.learmonth@gmail.com"> © 2024 Appy IO - a web development
+            company</a>
+        </footer>
+      </div>
+  
+
+    </div>
+  </section>
 
   <script type="text/javascript" src="js/main.js"></script>
 
