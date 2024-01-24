@@ -213,7 +213,7 @@ a {
 }
 
 .physio-container, .locations-container, .pricing-container, .extras-container {
-    background-color: rgb(32 56, 100);
+    background-color: rgb(32, 56, 100);
     width: 55%;
     padding: 10px;
     border-radius: 10px;
@@ -298,5 +298,3 @@ input[type=submit] {
     line-height:1.5;
     font-weight:100;
 }
-
-
