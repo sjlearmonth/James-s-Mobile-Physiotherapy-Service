@@ -116,51 +116,12 @@ function dropDownMenu() {
   }
 }
 
-function removeTitleElem( ) {
-
-  const ogc = document.getElementsByClassName("outer-grid-container")[0];
-  //
-  // if width is less than 1000px
-  //
-  if ( mediaQueryListObject1000px.matches ) {
-
-    document.getElementById("title").remove();
-    ogc.setAttribute("style", "grid-template-columns:auto auto");
-
-  //
-  // if width is greater than 1000px
-  //
-  } else {
-
-    const nodes = ogc.childNodes;
-
-    // Count element nodes
-    var elemNodeCount = 0;
-    for (let i = 0; i < nodes.length; i++) {
-      if (nodes[i].nodeType == 1) {
-        elemNodeCount++;
-      }
-    }
-
-    if ( elemNodeCount == 2 ) {
-
-      const firstElemChild = ogc.firstElementChild;
-      firstElemChild.insertAdjacentElement("afterend", title);
-
-      ogc.setAttribute("style", "grid-template-columns:auto auto auto");
-  
-
-    }
-  }
-}
-
 // Create variables
 var menuIsClosed = true;
 var logo = document.getElementById("logo");
 var about = document.getElementById("about");
 var services = document.getElementById("services");
 var contactUs = document.getElementById("contact-us");
-var title = document.getElementById("title");
 
 // Create a MediaQueryList object for 750px breakpoint
 var mediaQueryListObject750px = window.matchMedia("(max-width: 750px)")
@@ -171,15 +132,4 @@ removeMenuItems(mediaQueryListObject750px);
 // Attach listener function on state changes
 mediaQueryListObject750px.addEventListener("change", function () {
   removeMenuItems(mediaQueryListObject750px);
-});
-
-// Create a MediaQueryList object for 1000px breakpoint
-var mediaQueryListObject1000px = window.matchMedia("(max-width: 1000px)")
-
-// Call listener function at run time
-removeTitleElem(mediaQueryListObject1000px);
-
-// Attach listener function on state changes
-mediaQueryListObject1000px.addEventListener("change", function () {
-  removeTitleElem(mediaQueryListObject1000px);
 });

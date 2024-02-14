@@ -7,16 +7,12 @@ section {
     background-image: linear-gradient(white,rgb(33,57,99));
 }
 
-#logo {
-    height: 100px;
-}
-
 .outer-grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: 120px;
     padding-left:5px;
     padding-right:5px;
   }
@@ -24,15 +20,8 @@ section {
   .inner-left-flex-container {
     display: inline-flex;
     align-items: center;
-    width: 380px;
+    width: 450px;
     justify-content: space-around;
-  }
-
-  .inner-center-flex-container {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5rem;
   }
 
   .inner-right-flex-container {
@@ -48,8 +37,8 @@ section {
 }
 
 .navbar-logo {
-    width:100px;
-    height:100px;
+    width:150px;
+    height:150px;
     margin:0;
     padding:0;
 }
@@ -84,12 +73,6 @@ section {
     width: 60px;
     height: 60px;
     border-radius: 30px;
-}
-
-.main-title {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 2.5rem;
 }
 
 .main-bio {
