@@ -158,7 +158,7 @@ h5 {
     text-align: center;
     font-size: 1.8rem;
     padding: 10px;
-    color: black;
+    color: beige;
 }
 
 .sm-container > img, .em-container > img  {
@@ -169,7 +169,7 @@ h5 {
 }
 
 a {
-    color: black;
+    color: beige;
 }
 
 .services-header {
