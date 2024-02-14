@@ -169,7 +169,7 @@ h5 {
 }
 
 a {
-    color: beige;
+    color: black;
 }
 
 .services-header {
@@ -286,4 +286,8 @@ input[type=submit] {
     margin:4rem auto 4rem;
     line-height:1.5;
     font-weight:100;
+}
+
+footer a {
+    color: beige;
 }
