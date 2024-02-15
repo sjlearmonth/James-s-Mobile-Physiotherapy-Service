@@ -180,14 +180,6 @@ a {
     width: 100%;
 }
 
-.services-logo-image {
-    width: 20%;
-    display: block;
-    border: 5px solid gray;
-    margin: -10% auto 0;
-    position: relative;
-}
-
 .services-container, .contactus-container {
     width: 75%;
     margin: auto;
