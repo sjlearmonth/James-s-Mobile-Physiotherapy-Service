@@ -1,3 +1,7 @@
+/* 
+    All pages
+*/
+
 body {
     margin: 0%;
     padding: 0%;
@@ -10,9 +14,9 @@ section {
 .outer-grid-container {
     display: grid;
     grid-template-columns: auto auto;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
-    height: 150px;
+    height: 300px;
     padding-left:5px;
     padding-right:5px;
   }
@@ -20,7 +24,7 @@ section {
   .inner-left-flex-container {
     display: inline-flex;
     align-items: center;
-    width: 450px;
+    width: 600px;
     justify-content: space-around;
   }
 
@@ -37,8 +41,8 @@ section {
 }
 
 .navbar-logo {
-    width:150px;
-    height:150px;
+    width:300px;
+    height:300px;
     margin:0;
     padding:0;
 }
@@ -75,6 +79,35 @@ section {
     border-radius: 30px;
 }
 
+.sm-container, .em-container, .pp-container, .da-container {
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 10px;
+    color: beige;
+}
+
+.sm-container img {
+    height: 40px;
+    width: auto;
+    position: relative;
+    top: -3.5px;
+}
+
+.em-container img {
+    height: 40px;
+    width: auto;
+    position: relative;
+    top: -3.5px;
+}
+
+footer a {
+    color: beige;
+}
+
+/*
+    About page
+*/
+
 .main-bio {
     position: relative;
     left: 50%;
@@ -86,33 +119,17 @@ section {
 
 .title-images-container {
     display: flex;
-    justify-content: center;
-    width: 90%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    justify-content: space-around;
+    width: 60%;
+    margin: auto;
+    align-items: center;
 }
 
 .hcpc-image {
-    position:relative;
-    top:50%;
-    transform:translateY(-50%);
-    width:100%;
-}
-
-.logo-image {
-    position:relative;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
     width:100%;
 }
 
 .csp-image {
-    position:relative;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
     width:50%;
 }
 
@@ -151,66 +168,47 @@ h5 {
 
 .social-links {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    width: 20%;
+    margin: auto;
 }
 
-.sm-container, .em-container, .pp-container, .da-container {
-    text-align: center;
-    font-size: 1.8rem;
-    padding: 10px;
-    color: beige;
-}
-
-.sm-container img {
-    height: 40px;
-    width: auto;
-    position: relative;
-    top: -3.5px;
-}
-
-.em-container img {
-    height: 40px;
-    width: auto;
-    position: relative;
-    top: -3.5px;
-}
-
-a {
-    color: black;
-}
-
-.services-header {
-    border: none;
-}
+/*
+    Services page
+*/
 
 .services-title-image {
     width: 100%;
+    margin-bottom: 100px;
 }
 
-.services-container, .contactus-container {
+.services-container {
     width: 75%;
     margin: auto;
     padding: 20px;
-    background-color: transparent;
+    background-color: rgb(32, 56, 100);
+    border-radius: 25px;
+}
+
+.services-title {
+    text-align: center;
+    color: beige;
+}
+
+.services-explainer {
+    color: beige;
+    text-align: center;
 }
 
 .physio-container, .locations-container, .pricing-container, .extras-container {
-    background-color: rgb(32, 56, 100);
     width: 55%;
-    padding: 10px;
-    border-radius: 10px;
     margin: auto;
     color: beige;
 }
 
-.services-title, .contactus-title {
-    text-align: center;
-    color: black;
-}
-
-.services-intro, .locations-intro, .pricing-intro, .extras-intro, .contactus-intro, .direct-contact {
+.services-intro, .locations-intro, .pricing-intro, .extras-intro, .direct-contact {
     text-align: justify;
-    color: black;
+    color: beige;
     line-height: 2.1rem;
     font-size: 1.5rem;
     width: 85%;
@@ -220,6 +218,37 @@ a {
 li {
     line-height: 1.8rem;
     font-size: 1.4rem;
+    padding-top: 0.55rem;
+}
+
+/*
+    Contact Us page
+*/
+
+.contact-us-title-image {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.contactus-title {
+    text-align: center;
+    color: black;
+}
+
+.contactus-container {
+    width: 75%;
+    margin: auto;
+    padding: 20px;
+    color: black;
+}
+
+.contactus-intro {
+    text-align: justify;
+    color: black;
+    line-height: 2.1rem;
+    font-size: 1.5rem;
+    width: 85%;
+    margin: auto;
 }
 
 .form-container {
@@ -230,12 +259,6 @@ li {
     margin: auto;
     font-size: 28px;
     color: wheat;
-}
-
-@media only screen and (max-width: 1300px) {
-    .form-container {
-        width: 100%;
-    }
 }
 
 input[type=text] {
@@ -276,17 +299,4 @@ input[type=submit] {
     width: 100%;
     margin-top: 28px;
     height: 80px;
-}
-
-.cu-invite {
-    font-size:2rem;
-    width:60%;
-    text-align:center;
-    margin:4rem auto 4rem;
-    line-height:1.5;
-    font-weight:100;
-}
-
-footer a {
-    color: beige;
 }
