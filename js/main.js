@@ -1,9 +1,9 @@
 function removeMenuItems() {
 
   //
-  // if width is less than 1090px
+  // if width is less than 910px
   //
-  if ( mediaQueryListObject1090px.matches ) {
+  if ( mediaQueryListObject910px.matches ) {
 
     // Remove element nodes first
     document.getElementById("logo").remove();
@@ -24,7 +24,7 @@ function removeMenuItems() {
     lcElemNode.appendChild(menuElem);
 
   //
-  // if width is greater than 1090px
+  // if width is greater than 910px
   //
   } else {
 
@@ -44,7 +44,7 @@ function removeMenuItems() {
 
       // Modify attributs for inner-left-flex-container
       const lcNode = document.getElementsByClassName("inner-left-flex-container")[0];
-      lcNode.setAttribute("style", "width:600px;");
+      lcNode.setAttribute("style", "width:450px;");
 
       // Append child nodes back in
       document.getElementsByClassName("inner-left-flex-container")[0].appendChild(logo);
@@ -63,7 +63,7 @@ function removeMenuItems() {
         lcElemNode.replaceChild(logo, lcFirstElemChild);
 
         // modify some CSS properties of left-constainer
-        lcElemNode.setAttribute("style", "width:600px;flex-direction:row;");
+        lcElemNode.setAttribute("style", "width:450px;flex-direction:row;");
 
         // menu needs to start out as closed
         menuIsClosed = true;
@@ -125,13 +125,13 @@ var about = document.getElementById("about");
 var services = document.getElementById("services");
 var contactUs = document.getElementById("contact-us");
 
-// Create a MediaQueryList object for 1090px breakpoint
-var mediaQueryListObject1090px = window.matchMedia("(max-width: 1090px)")
+// Create a MediaQueryList object for 910px breakpoint
+var mediaQueryListObject910px = window.matchMedia("(max-width: 910px)")
 
 // Call listener function at run time
-removeMenuItems(mediaQueryListObject1090px);
+removeMenuItems(mediaQueryListObject910px);
 
 // Attach listener function on state changes
-mediaQueryListObject1090px.addEventListener("change", function () {
-  removeMenuItems(mediaQueryListObject1090px);
+mediaQueryListObject910px.addEventListener("change", function () {
+  removeMenuItems(mediaQueryListObject910px);
 });
