@@ -14,11 +14,12 @@ section {
 .outer-grid-container {
     display: grid;
     grid-template-columns: auto auto;
+    grid-template-rows: 150px;
     justify-content: space-between;
     align-items: center;
-    height: 150px;
     padding-left:5px;
     padding-right:5px;
+    /* border: 1px solid blue; */
   }
 
   .inner-left-flex-container {
@@ -26,6 +27,7 @@ section {
     align-items: center;
     width: 450px;
     justify-content: space-around;
+    /* border: 1px solid red; */
   }
 
   .inner-right-flex-container {
@@ -33,6 +35,7 @@ section {
     align-items: center;
     width: 450px;
     justify-content: space-around;
+    /* border: 1px solid green; */
   }
 
   .inner-right-flex-container img {
@@ -64,7 +67,7 @@ section {
 
 .sm-container, .em-container, .pp-container, .da-container {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     padding: 10px;
     color: beige;
 }
@@ -200,7 +203,7 @@ h5 {
     color: beige;
 }
 
-.services-intro, .locations-intro, .pricing-intro, .extras-intro, .direct-contact {
+.services-intro, .locations-intro, .pricing-intro, .extras-intro {
     text-align: justify;
     color: beige;
     line-height: 2.1rem;
@@ -239,9 +242,9 @@ li {
 .contactus-intro {
     text-align: justify;
     color: black;
-    line-height: 2.1rem;
-    font-size: 1.5rem;
-    width: 85%;
+    line-height: 2.8rem;
+    font-size: 2.0rem;
+    width: 100%;
     margin: auto;
 }
 
@@ -249,10 +252,25 @@ li {
     border-radius: 5px;
     background-color: rgb(133,133,133);
     padding: 20px;
-    width: 70%;
+    width: 100%;
     margin: auto;
     font-size: 28px;
     color: wheat;
+}
+
+@media only screen and (max-width: 1180px) {
+    .contactus-container {
+        width: 85%;
+    }
+}
+
+.direct-contact {
+    text-align: justify;
+    color: beige;
+    line-height: 2.8rem;
+    font-size: 2.0rem;
+    width: 85%;
+    margin: auto;
 }
 
 input[type=text] {

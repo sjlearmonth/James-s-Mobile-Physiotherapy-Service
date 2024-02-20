@@ -13,7 +13,7 @@ function removeMenuItems() {
 
     // Append element node
     const menuElem = document.createElement('img');
-    menuElem.setAttribute("style", "width:22px;height:16px;margin:25px;");
+    menuElem.setAttribute("style", "width:44px;height:32px;margin:25px;");
     menuElem.setAttribute('src', "images/hamburger.png");
     menuElem.setAttribute("id", "hamburger");
     menuElem.addEventListener("click", dropDownMenu);
@@ -83,12 +83,13 @@ function dropDownMenu() {
 
     // setup flex box
     const ilfcElemNode = document.getElementsByClassName("inner-left-flex-container")[0];
-    const ogcElemNode = document.getElementsByName("outer-grid-container")[0];
-    ilfcElemNode.setAttribute("style", "flex-direction:column;width:auto;height:200px;align-items:baseline;");
-    // ogcElemNode.setAttribute("style", "align-items:center;");
+    const ilfcFirstElemChild = ilfcElemNode.firstElementChild;
+    const paddingElemNode = document.createElement("div");
+    paddingElemNode.setAttribute("style", "width:44px;height:44px;background-color:orange;");
+    ilfcFirstElemChild.insertAdjacentElement("beforebegin", paddingElemNode);
+    ilfcElemNode.setAttribute("style", "flex-direction:column;width:130px;height:200px;align-items:baseline;");
 
     const irfcElemNode = document.getElementsByClassName("inner-right-flex-container")[0];
-    irfcElemNode.setAttribute("style", "align-self:start;position:relative;top:17.5px;")
 
     // Append child nodes back in
     document.getElementsByClassName("inner-left-flex-container")[0].appendChild(about);
