@@ -127,7 +127,7 @@ footer a {
 
 .profile-image {
     float: left;
-    width: 25%;
+    width: 50%;
     height: auto;
     margin-right: 1.5%;
     border: 5px solid black;
@@ -183,29 +183,28 @@ h5 {
     width: 75%;
     margin: auto;
     padding: 20px;
-    background-color: rgb(32, 56, 100);
     border-radius: 25px;
 }
 
 .services-title {
     text-align: center;
-    color: beige;
 }
 
 .services-explainer {
-    color: beige;
     text-align: center;
 }
 
 .physio-container, .locations-container, .pricing-container, .extras-container {
     width: 55%;
     margin: auto;
-    color: beige;
+}
+
+.pricing-title {
+    text-align: center;
 }
 
 .services-intro, .locations-intro, .pricing-intro, .extras-intro {
     text-align: justify;
-    color: beige;
     line-height: 2.1rem;
     font-size: 1.5rem;
     width: 85%;
