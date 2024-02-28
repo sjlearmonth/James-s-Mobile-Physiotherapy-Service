@@ -194,8 +194,13 @@ h5 {
     text-align: center;
 }
 
-.physio-container, .locations-container, .pricing-container, .extras-container {
+.physio-container, .locations-container, .extras-container {
     width: 55%;
+    margin: auto;
+}
+
+.pricing-container {
+    width: 80%;
     margin: auto;
 }
 
