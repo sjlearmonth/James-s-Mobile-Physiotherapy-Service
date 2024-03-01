@@ -123,9 +123,9 @@ function manageRightULListItems() {
   const ulRightChildren = document.getElementsByClassName("ul-right")[0].children;
 
   //
-  // if width is less than 990px
+  // if width is less than 1180px
   //
-  if ( mediaQueryListObject990px.matches ) {
+  if ( mediaQueryListObject1180px.matches ) {
 
     // Check that the second child is not already a <br>
     if ( ulRightChildren[1].nodeName == "LI") {
@@ -137,7 +137,7 @@ function manageRightULListItems() {
 
   }
   //
-  // If width is greater than 990px
+  // If width is greater than 1180px
   //
   else {
 
@@ -168,13 +168,13 @@ mediaQueryListObject910px.addEventListener("change", function () {
   removeMenuItems(mediaQueryListObject910px);
 });
 
-// Create a MediaQueryList object for 990px breakpoint
-var mediaQueryListObject990px = window.matchMedia("(max-width: 990px)")
+// Create a MediaQueryList object for 1180px breakpoint
+var mediaQueryListObject1180px = window.matchMedia("(max-width: 1180px)");
 
 // Call listener function at run time
-removeMenuItems(mediaQueryListObject990px);
+manageRightULListItems(mediaQueryListObject1180px);
 
 // Attach listener function on state changes
-mediaQueryListObject990px.addEventListener("change", function () {
-  manageRightULListItems(mediaQueryListObject990px);
+mediaQueryListObject1180px.addEventListener("change", function () {
+  manageRightULListItems(mediaQueryListObject1180px);
 });
