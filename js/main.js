@@ -119,6 +119,37 @@ function dropDownMenu() {
   }
 }
 
+function manageRightULListItems() {
+  const ulRightChildren = document.getElementsByClassName("ul-right")[0].children;
+
+  //
+  // if width is less than 990px
+  //
+  if ( mediaQueryListObject990px.matches ) {
+
+    // Check that the second child is not already a <br>
+    if ( ulRightChildren[1].nodeName == "LI") {
+
+      // Second child is not a <br> yet, so we insert one
+      ulRightChildren[0].insertAdjacentElement("afterend", document.createElement("br"));
+
+    }
+
+  }
+  //
+  // If width is greater than 990px
+  //
+  else {
+
+    // check that second child is a <br> before removing it
+    if ( ulRightChildren[1].nodeName == "BR") {
+      const ulRight = document.getElementsByClassName("ul-right")[0];
+      ulRight.removeChild(ulRightChildren[1]);
+    }
+
+  }
+}
+
 // Create variables
 var menuIsClosed = true;
 var logo = document.getElementById("logo");
@@ -135,4 +166,15 @@ removeMenuItems(mediaQueryListObject910px);
 // Attach listener function on state changes
 mediaQueryListObject910px.addEventListener("change", function () {
   removeMenuItems(mediaQueryListObject910px);
+});
+
+// Create a MediaQueryList object for 990px breakpoint
+var mediaQueryListObject990px = window.matchMedia("(max-width: 990px)")
+
+// Call listener function at run time
+removeMenuItems(mediaQueryListObject990px);
+
+// Attach listener function on state changes
+mediaQueryListObject990px.addEventListener("change", function () {
+  manageRightULListItems(mediaQueryListObject990px);
 });
