@@ -199,6 +199,12 @@ h5 {
     margin: auto;
 }
 
+.mid-line-break {
+    background-color: black;
+    width: 60%;
+    height: 4px;
+    margin: auto;
+}
 .pricing-container {
     width: 85%;
     margin: auto;
@@ -207,8 +213,7 @@ h5 {
 }
 
 .ul-left {
-    /* border: 1px solid black; */
-
+    list-style-type: none;
 }
 
 .ul-right {
@@ -219,6 +224,7 @@ h5 {
 
 .pricing-container li {
     font-size: 2rem;
+    line-height: 2.5rem;
 }
 
 .pricing-title {
@@ -231,6 +237,10 @@ h5 {
     font-size: 1.5rem;
     width: 85%;
     margin: auto;
+}
+
+.locations-intro, .extras-intro, .locations-container, .extras-container {
+    color: beige;
 }
 
 li {
