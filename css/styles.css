@@ -8,7 +8,7 @@ body {
 }
 
 section {
-    background-image: linear-gradient(white,rgb(33,57,99));
+    background-image: linear-gradient(white, rgb(33,57,99));
 }
 
 .outer-grid-container {
@@ -19,7 +19,6 @@ section {
     align-items: center;
     padding-left:5px;
     padding-right:5px;
-    /* border: 1px solid blue; */
   }
 
   .inner-left-flex-container {
@@ -27,7 +26,6 @@ section {
     align-items: center;
     width: 450px;
     justify-content: space-around;
-    /* border: 1px solid red; */
   }
 
   .inner-right-flex-container {
@@ -35,7 +33,6 @@ section {
     align-items: center;
     width: 450px;
     justify-content: space-around;
-    /* border: 1px solid green; */
   }
 
   .inner-right-flex-container img {
@@ -219,12 +216,11 @@ h5 {
 .ul-right {
     list-style-type: none;
     text-align: right;
-    /* border: 1px solid black; */
 }
 
 .pricing-container li {
     font-size: 2rem;
-    line-height: 2.5rem;
+    line-height: 4.0rem;
 }
 
 .pricing-title {
@@ -237,10 +233,6 @@ h5 {
     font-size: 1.5rem;
     width: 85%;
     margin: auto;
-}
-
-.locations-intro, .extras-intro, .locations-container, .extras-container {
-    color: beige;
 }
 
 li {
