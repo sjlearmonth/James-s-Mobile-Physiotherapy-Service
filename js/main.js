@@ -120,6 +120,7 @@ function dropDownMenu() {
 }
 
 function manageRightULListItems() {
+
   const ulRightChildren = document.getElementsByClassName("ul-right")[0].children;
 
   //
@@ -127,13 +128,7 @@ function manageRightULListItems() {
   //
   if ( mediaQueryListObject1180px.matches ) {
 
-    // Check that the second child is not already a <br>
-    if ( ulRightChildren[1].nodeName == "LI") {
-
-      // Second child is not a <br> yet, so we insert one
-      ulRightChildren[0].insertAdjacentElement("afterend", document.createElement("br"));
-
-    }
+    ulRightChildren[1].setAttribute("style", "padding-top: 4.5rem;");
 
   }
   //
@@ -141,12 +136,7 @@ function manageRightULListItems() {
   //
   else {
 
-    // check that second child is a <br> before removing it
-    if ( ulRightChildren[1].nodeName == "BR") {
-      const ulRight = document.getElementsByClassName("ul-right")[0];
-      ulRight.removeChild(ulRightChildren[1]);
-    }
-
+    ulRightChildren[1].setAttribute("style", "padding-top: 0.55rem;");
   }
 }
 

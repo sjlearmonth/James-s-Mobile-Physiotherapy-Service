@@ -206,7 +206,7 @@ h5 {
     width: 85%;
     margin: auto;
     display: grid;
-    grid-template-columns: 10fr 1fr;
+    grid-template-columns: 8fr 2.5fr;
 }
 
 .ul-left {
@@ -215,7 +215,7 @@ h5 {
 
 .ul-right {
     list-style-type: none;
-    text-align: right;
+    text-align: left;
 }
 
 .pricing-container li {
