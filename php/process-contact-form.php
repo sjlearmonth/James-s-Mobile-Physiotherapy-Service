@@ -131,8 +131,8 @@ if (strlen($_POST['firstName']) > 0 ||
         return $mail->send();
       }
     
-    // $clientMobileNumber = "+447971818756";
-    $clientMobileNumber = "+447757782537";
+    $clientMobileNumber = "+447971818756";
+    // $clientMobileNumber = "+447757782537";
     
     // Build SMS message body
     $clientMessage  = "You have a physiotherapy enquiry from a potential client. Here are the details.". "\n\n";
@@ -175,8 +175,8 @@ if (strlen($_POST['firstName']) > 0 ||
     ////////////////////////////////////
 
     // Build email address of client
-    // $emailClient = 'contactus@juphysiotherapy.co.uk';
-    $emailClient = 'jamespgunderwoodenquiries@gmail.com';
+    $emailClient = 'contactus@juphysiotherapy.co.uk';
+    // $emailClient = 'jamespgunderwoodenquiries@gmail.com';
 
     // Build email subject
     $emailSubject = "You have a physiotherapy enquiry!";
